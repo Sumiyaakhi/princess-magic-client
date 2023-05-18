@@ -19,6 +19,9 @@ const Navbar = () => {
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
     </>
   );
   return (
@@ -28,7 +31,7 @@ const Navbar = () => {
           FREE Delivery when you spend RM250 or more for a limited time
         </h4>
       </div>
-      <div className="  ">
+      <div>
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -55,8 +58,11 @@ const Navbar = () => {
                 {navItems}
               </ul>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <img className="w-40 ms-5" src={logo} alt="" />
+              <h1 className="text-3xl text-blue-300 font-serif">
+                Princess Magic
+              </h1>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
