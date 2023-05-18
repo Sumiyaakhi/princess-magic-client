@@ -25,6 +25,7 @@ const Login = () => {
               </label>
               <input
                 type="text"
+                name="email"
                 placeholder="email"
                 className="input input-bordered"
               />
@@ -35,6 +36,7 @@ const Login = () => {
               </label>
               <input
                 type="text"
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
               />
@@ -45,10 +47,12 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn hover:bg-blue-600 bg-blue-400 border-0">
-                Login
-              </button>
-            </div>
+                <input
+                  className="btn bg-blue-400 border-0 hover:bg-blue-600"
+                  type="submit"
+                  value="Login"
+                />
+              </div>
             </form>
             <p className="">
               New to Princess Magic?{" "}
