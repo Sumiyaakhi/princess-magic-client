@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
     const handleLogin =event =>{
@@ -62,7 +63,12 @@ const Login = () => {
             </p>
           </div>
         </div>
-        <button className="btn btn-outline btn-error">Error</button>
+       <button>
+       <div className="ms-20 mt-6 flex items-center justify-center">
+      <FcGoogle className="w-6 h-6 "></FcGoogle>
+       <h4> Login with Google</h4>
+       </div>
+       </button>
       </div>
     </div>
   );

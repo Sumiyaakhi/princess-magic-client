@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FcGoogle } from 'react-icons/fc';
+
 
 const Registration = () => {
   const handleRegister = (event) => {
@@ -15,7 +17,7 @@ const Registration = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content">
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body ">
             <h1 className="text-4xl text-blue-400 text-center mb-3 font-bold">
               Registration!
@@ -70,8 +72,16 @@ const Registration = () => {
               </span>{" "}
             </p>
           </div>
+          <button>
+       <div className=" mb-6 flex rounded mx-3 py-2 bg-blue-300 items-center justify-center">
+      <FcGoogle className="w-6 h-6 "></FcGoogle>
+       <h4 className="text-white"> Login with Google</h4>
+       </div>
+       </button>
         </div>
+      
       </div>
+       
     </div>
   );
 };
