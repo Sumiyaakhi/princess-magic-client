@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
+import { AuthContext } from "../Providers/AuthProvider";
 
 
 const Registration = () => {
+    const {googleSignIn, createUser} = useContext(AuthContext)
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,7 +15,25 @@ const Registration = () => {
     const password = form.password.value;
     const user = { name, photo, email, password };
     console.log(user);
+
+    createUser(email,password)
+    .then(result =>{
+        const user = result.user;
+        console.log(user);
+    })
+    .catch(error => console.log(error))
   };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => console.log(error));
+  };
+
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content">
@@ -33,7 +53,7 @@ const Registration = () => {
               </div>
               <div className="form-control">
                 <input
-                  type="img"
+                  type="text"
                   name="photo"
                   placeholder="Photo"
                   className="input input-bordered"
@@ -72,7 +92,7 @@ const Registration = () => {
               </span>{" "}
             </p>
           </div>
-          <button>
+          <button onClick={handleGoogleSignIn}>
        <div className=" mb-6 flex rounded mx-3 py-2 bg-blue-300 items-center justify-center">
       <FcGoogle className="w-6 h-6 "></FcGoogle>
        <h4 className="text-white"> Login with Google</h4>
