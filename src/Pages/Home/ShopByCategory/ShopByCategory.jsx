@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import DisneyDoll from './DisneyDoll';
 import FrozenDolls from './FrozenDolls';
+import AnimationDolls from './AnimationDolls';
 
 const ShopByCategory = () => {
     return (
@@ -24,7 +25,7 @@ const ShopByCategory = () => {
          <FrozenDolls></FrozenDolls>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 3</h2>
+          <AnimationDolls></AnimationDolls>
         </TabPanel>
       </Tabs>
         </div>
