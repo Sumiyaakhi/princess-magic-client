@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../../assets/Images/ezgif.com-webp-to-jpg.jpg'
+import img from '../../../assets/Images/ezgif.com-webp-to-jpg.jpg'
 
 const Banner = () => {
     return (
