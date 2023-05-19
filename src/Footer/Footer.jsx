@@ -1,4 +1,4 @@
-import logo from "../assets/Princess_Magic_Logo.webp";
+import logo from "../assets/Images/Princess_Magic_Logo.webp";
 const Footer = () => {
   return (
     <footer className="footer p-10 bg-blue-300 text-white ">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/Princess_Magic_Logo.webp";
+import logo from "../assets/Images/Princess_Magic_Logo.webp";
 
 const Navbar = () => {
   const navItems = (
