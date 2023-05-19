@@ -23,7 +23,8 @@ import ErrorPage from '../ErrorPage/ErrorPage';
         {
             path:'/registration',
             element:<Registration></Registration>
-        }
+        },
+        
       ]
     },
   ]);

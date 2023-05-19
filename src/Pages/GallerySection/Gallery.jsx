@@ -24,6 +24,7 @@ const Gallery = () => {
        <div>
         <h1 className='text-3xl text-center pt-12 pb-3 font-semibold font-serif'>Gallery Section</h1>
         <p className=' text-center pb-12'>Hey, princess! Look some other princess like you..These are also so beautiful and adorable..</p>
+        <div className="divider"></div>
          <div className="carousel w-96   mx-auto">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={img1} className="w-fit" />
