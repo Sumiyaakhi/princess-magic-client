@@ -1,27 +1,51 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/Images/Princess_Magic_Logo.webp";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .error((error) => console.log(error));
+  };
+
   const navItems = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/alltoys">All Toys</Link>
-      </li>
-      <li>
-        <Link to="/mytoys">My toys</Link>
-      </li>
-      <li>
-        <Link to="/addatoys">Add a toys</Link>
-      </li>
-      <li>
         <Link to="/blogs">Blogs</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/alltoys">All Toys</Link>
       </li>
+      {user?.email ? (
+        <>
+          <li>
+            <Link to="/mytoys">My toys</Link>
+          </li>
+          <li>
+            <Link to="/addatoys">Add a toys</Link>
+          </li>
+
+          <li>
+            <button className="btn bg-blue-300 text-white rounded-xl border-0" onClick={handleLogOut}>Log Out</button>
+          </li>
+        </>
+      ) : (
+        <li>
+           <button className="btn bg-blue-300 text-white rounded-xl border-0" ><Link to="/login">Login</Link></button>
+          
+        </li>
+      )}
+      
+
+     
     </>
   );
   return (
@@ -69,8 +93,8 @@ const Navbar = () => {
             <ul className="menu menu-horizontal pe-4">{navItems}</ul>
           </div>
           <div className="avatar ps-40">
-            <div className=" w-10 md:w-16 rounded-full">
-              <img src="https://w7.pngwing.com/pngs/823/103/png-transparent-graphy-person-thinking-child-face-studio-thumbnail.png" />
+            <div className=" w-6 md:w-10 rounded-full">
+              { user?.email?( <><img title={user.displayName} src={user.photoURL} />  </>) : ""}
             </div>
           </div>
         </div>
