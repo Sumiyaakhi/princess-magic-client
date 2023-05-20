@@ -11,7 +11,7 @@ const Blog = () => {
       <p>
         <span className="text-xl font-bold"> Ans:</span> An access token and a
         refresh token are both components of an authentication mechanism used
-        for security and authorization purposes. Here's an overview of what they
+        for security and authorization purposes. Here is an overview of what they
         are, how they work, and where they should be stored on the client-side:{" "}
         <br />
         <span className="text-xl font-bold">Access Token:</span> <br />
