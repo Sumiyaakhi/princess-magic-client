@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import DisneyDoll from './DisneyDoll';
 import FrozenDolls from './FrozenDolls';
-import AnimationDolls from './AnimationDolls';
+import AnimationDolls from './AladdinDoll';
 
 const ShopByCategory = () => {
     return (
@@ -13,9 +13,9 @@ const ShopByCategory = () => {
         <div className='flex justify-center pt-8'>
         <Tabs>
         <TabList>
-          <Tab>Disney princes</Tab>
-          <Tab>frozen dolls</Tab>
-          <Tab>animation characters</Tab>
+          <Tab>Toy Story dolls</Tab>
+          <Tab>Frozen Dolls</Tab>
+          <Tab>Aladdin</Tab>
         </TabList>
     
         <TabPanel>

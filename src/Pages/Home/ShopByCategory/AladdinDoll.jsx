@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import AnimationCard from './AnimationCard';
+import AnimationCard from './Aladdin';
 
 
 const AnimationDolls = () => {
-    const [animationDolls, setAnimationDolls] = useState([]);
+    const [aladdin, setAladdin] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/animation')
+        fetch('http://localhost:5000/services')
         .then(res=>res.json())
-        .then(data=> setAnimationDolls(data))
+        .then(data=> setAladdin(data))
     },[])
     return (
         <div>
-            <h1 className='text-xl font-serif'>Animation  Dolls are here!</h1>
+            <h1 className='text-xl font-serif'>Aladdin  Dolls are here!</h1>
             <div className=' md:grid grid-cols-3 gap-8 pt-8'>
                 {
-                    animationDolls.map(animationDoll=> 
+                    aladdin.filter(aladdin=>aladdin.subCategoryName === "Aladdin").map(aladdin=> 
                     <AnimationCard
                     
-                    key={animationDoll.id}
-                    animationDoll={animationDoll}
+                    key={aladdin.id}
+                    aladdin={aladdin}
                     ></AnimationCard>
                     
                         )
