@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../Providers/AuthProvider";
+import useTitle from "../hooks/useTitle";
 
 
 const Registration = () => {
     const {googleSignIn, createUser} = useContext(AuthContext)
+    useTitle('registration')
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;

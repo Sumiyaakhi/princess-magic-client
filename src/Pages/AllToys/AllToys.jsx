@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllToyRow from "./AllToyRow";
 import { FaSearch } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
     const [toy, setToy] = useState('');
     const [order, setOrder] =useState("ASC");
-
+useTitle('AllToys')
 
     const sortDataByPrice = ()=>{
       
@@ -45,7 +46,7 @@ const AllToys = () => {
           {/* head */}
           <thead>
             <tr>
-              
+              <th>Image</th>
               <th>Seller Name</th>
               <th>Doll Name</th>
               <th>Sub-Category</th>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
@@ -7,9 +7,13 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 const SingleToyDetail = () => {
     const {user} = useContext(AuthContext);
     const singleToy = useLoaderData()
-
+const navigate = useNavigate()
     const {img, sellerName, dollName,subCategoryName,price, ratings,quantityAvailable,description} = singleToy;
     console.log(singleToy);
+
+
+
+
     return (
 <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
+import UpdateDoll from '../UpdateDoll/UpdateDoll';
 
-const MyToyRow = ({doll}) => {
-
+const MyToyRow = ({doll,handleDelete, handleUpdateDoll}) => {
     const {img, dollName,
         SellerName,email, SubCategory, price, rating, quantity,description, _id} = doll;
+
+   
+      
     return (
         <tr>
         <th>
-        <button className="btn btn-circle btn-outline">
+        <button onClick={()=>handleDelete(_id)} className="btn btn-sm btn-circle btn-outline">
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
 </button>
         </th>
@@ -45,7 +48,17 @@ SellerName}
         <td>{quantity}</td>
         <td>{description}</td>
         <td>
-          <button className="btn btn-ghost btn-xs">Update</button>
+         
+<a href="#my-modal-2"  className="btn bg-blue-300 border-0">Update</a>
+
+<div className="modal" id="my-modal-2">
+  <div className="modal-box">
+    <UpdateDoll></UpdateDoll>
+    <div className="modal-action">
+    <button onClick={()=>handleUpdateDoll(_id)}><input className="btn bg-blue-300 border-0 my-8" type="submit" /></button>
+    </div>
+  </div>
+</div>
         </td>
       </tr>
     );

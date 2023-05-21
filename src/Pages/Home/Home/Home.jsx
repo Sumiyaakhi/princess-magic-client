@@ -4,8 +4,10 @@ import Gallery from '../../GallerySection/Gallery';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import About from '../About/About';
 import Sponsor from '../Sponsor/Sponsor';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+  useTitle("home");
     return (
       <>
        <Banner></Banner>
