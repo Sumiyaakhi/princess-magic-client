@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddAtoy = () => {
@@ -8,10 +9,31 @@ const AddAtoy = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
       } = useForm();
-      const onSubmit = (data) => console.log(data);
+      const onSubmit = (addedDoll) => {
+        
+        fetch('http://localhost:5000/dollAdded',{
+            method:"POST",
+            headers:{
+                "content-type": 'application/json'
+            },
+            body: JSON.stringify(addedDoll)
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Booking added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+          })
+        console.log(addedDoll);
+      }
+     
 
       
   return (
@@ -24,9 +46,9 @@ const AddAtoy = () => {
         
         <input className="input input-bordered input-info w-full max-w-xs" placeholder="Photo URL" defaultValue="" {...register("img", { required: true })} />
         
-        <input className="input input-bordered input-info w-full max-w-xs" placeholder="Seller name" defaultValue={user?.displayName} {...register("Seller name", { required: true })} />
+        <input className="input input-bordered input-info w-full max-w-xs" placeholder="Seller name" defaultValue={user?.displayName} {...register("Seller name")} />
         
-        <input className="input input-bordered input-info w-full max-w-xs" type="email" placeholder="Seller Email" defaultValue={user?.email} {...register("email", { required: true })} />
+        <input className="input input-bordered input-info w-full max-w-xs" type="email" placeholder="Seller Email" defaultValue={user?.email} {...register("email")} />
         <select className="input input-bordered input-info w-full max-w-xs" {...register("SubCategory")}>
         <option value="Princess">Princess</option>
         <option value="Frozen">Frozen</option>
