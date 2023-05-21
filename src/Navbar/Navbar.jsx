@@ -30,7 +30,7 @@ console.log(user);
             <Link to="/mytoys">My toys</Link>
           </li>
           <li>
-            <Link to="/addatoys">Add a toys</Link>
+            <Link to="/addatoy">Add a toy</Link>
           </li>
 
           <li>
