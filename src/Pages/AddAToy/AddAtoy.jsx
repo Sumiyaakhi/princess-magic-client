@@ -22,6 +22,7 @@ const AddAtoy = () => {
           })
           .then(res => res.json())
           .then(data => {
+            console.log(data);
             if(data.insertedId){
                 Swal.fire({
                     title: 'Success!',
@@ -42,11 +43,11 @@ const AddAtoy = () => {
         <h1 className="text-3xl py-6 font-bold text-center font-serif  text-blue-300">Let's join with us</h1>
       <form className="grid grid-cols-2 gap-3 ms-20 md:w-1/2 " onSubmit={handleSubmit(onSubmit)}>
         
-        <input className="input input-bordered input-info w-full max-w-xs" placeholder="Doll name" defaultValue="" {...register("doll name", { required: true })} />
+        <input className="input input-bordered input-info w-full max-w-xs" placeholder="Doll Name" defaultValue="" {...register("dollName", { required: true })} />
         
-        <input className="input input-bordered input-info w-full max-w-xs" placeholder="Photo URL" defaultValue="" {...register("img", { required: true })} />
+        <input className="input input-bordered input-info w-full max-w-xs" placeholder="PhotoURL" defaultValue="" {...register("img", { required: true })} />
         
-        <input className="input input-bordered input-info w-full max-w-xs" placeholder="Seller name" defaultValue={user?.displayName} {...register("Seller name")} />
+        <input className="input input-bordered input-info w-full max-w-xs" placeholder="Seller name" defaultValue={user?.displayName} {...register("SellerName")} />
         
         <input className="input input-bordered input-info w-full max-w-xs" type="email" placeholder="Seller Email" defaultValue={user?.email} {...register("email")} />
         <select className="input input-bordered input-info w-full max-w-xs" {...register("SubCategory")}>
