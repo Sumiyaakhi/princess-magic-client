@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className="my-16">
+    <div
+    data-aos="zoom-in-up"
+        data-aos-duration="1000"
+    className="my-16">
       <h1 className="text-3xl text-center font-bold font-serif">About Us</h1>
       <div className="divider"></div>
       <div className="hero min-h-screen bg-base-200">

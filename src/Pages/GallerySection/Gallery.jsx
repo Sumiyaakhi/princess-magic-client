@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img1 from '../../assets/Gallery/5ba44b939c888d16068b4567.webp'
 import img2 from '../../assets/Gallery/6424114_sd.jpg'
 import img3 from '../../assets/Gallery/9643310_R_SET.jpg'
@@ -18,10 +18,18 @@ import img16 from '../../assets/Gallery/images (2).jpg'
 import img17 from '../../assets/Gallery/images (3).jpg'
 import img18 from '../../assets/Gallery/images (4).jpg'
 import img19 from '../../assets/Gallery/Top-Disney-World-Quick-Service-Restaurants-To-Visit-This-Year-74.jpg'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Gallery = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     return (
-       <div>
+       <div
+       data-aos="fade-right"
+       data-aos-duration="1000"
+       >
         <h1 className='text-3xl text-center pt-12 pb-3 font-semibold font-serif'>Gallery Section</h1>
         <p className=' text-center pb-12'>Hey, princess! Look some other princess like you..These are also so beautiful and adorable..</p>
         <div className="divider"></div>

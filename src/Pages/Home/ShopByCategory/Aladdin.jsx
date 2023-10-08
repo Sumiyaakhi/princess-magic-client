@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AnimationCard = ({aladdin}) => {
     const {img, dollName, price, ratings} = aladdin;
+    useEffect(() => {
+      AOS.init();
+    }, []);
     return (
-        <div>
+        <div
+        data-aos="flip-left"
+        data-aos-duration="2000"
+        >
             <div className="card w-96 bg-base-100 shadow-xl">
   <figure><img className='w-[400px] h-[300px]' src={img} alt="Shoes" /></figure>
   <div className="card-body">

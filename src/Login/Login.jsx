@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Providers/AuthProvider";
 import useTitle from "../hooks/useTitle";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
-  useTitle('login')
-  const form = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
+  useTitle('login')
+  const from = location.state?.from?.pathname || "/";
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,6 +21,10 @@ const Login = () => {
     signIn(email, password)
       .then(result => {
         const loggedUser = result.user;
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+        });
         form.reset();
         navigate(from, { replace: true });
       })

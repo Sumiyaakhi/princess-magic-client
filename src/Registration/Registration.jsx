@@ -1,27 +1,46 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../Providers/AuthProvider";
 import useTitle from "../hooks/useTitle";
+import Swal from "sweetalert2";
 
 
 const Registration = () => {
-    const {googleSignIn, createUser} = useContext(AuthContext)
+    const {googleSignIn, createUser, updateUserProfile} = useContext(AuthContext)
     useTitle('registration')
   const handleRegister = (event) => {
     event.preventDefault();
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/"
     const form = event.target;
     const name = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    const user = { name, photo, email, password };
+    const user = { photo, name, email, password };
     console.log(user);
 
     createUser(email,password)
     .then(result =>{
         const user = result.user;
         console.log(user);
+        console.log("update user data", name, photo)
+        updateUserProfile(name, photo)
+          .then(() => {
+            // Profile updated successfully
+            console.log("Profile updated:");
+            Swal.fire({
+              icon: "success",
+              title: "Login Successful",
+            });
+            form.reset();
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.log("Error updating profile:", error);
+          });
     })
     .catch(error => console.log(error))
   };
@@ -31,6 +50,11 @@ const Registration = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+        });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
@@ -57,7 +81,7 @@ const Registration = () => {
                 <input
                   type="text"
                   name="photo"
-                  placeholder="Photo"
+                  placeholder="PhotoURL"
                   className="input input-bordered"
                 />
               </div>
