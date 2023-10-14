@@ -33,11 +33,16 @@ const Login = () => {
   };
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-      })
-      .catch((error) => console.log(error));
+    .then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+      });
+      navigate(from, { replace: true });
+    })
+    .catch((error) => console.log(error));
   };
 
   return (

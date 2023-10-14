@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../Providers/AuthProvider";
 import useTitle from "../hooks/useTitle";
@@ -9,11 +9,12 @@ import Swal from "sweetalert2";
 const Registration = () => {
     const {googleSignIn, createUser, updateUserProfile} = useContext(AuthContext)
     useTitle('registration')
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/" ;
+
   const handleRegister = (event) => {
     event.preventDefault();
-    const location = useLocation();
-    const navigate = useNavigate()
-    const from = location.state?.from?.pathname || "/"
     const form = event.target;
     const name = form.name.value;
     const photo = form.photo.value;

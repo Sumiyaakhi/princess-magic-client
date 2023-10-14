@@ -7,9 +7,10 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 const SingleToyDetail = () => {
     const {user} = useContext(AuthContext);
     const singleToy = useLoaderData()
+    console.log(singleToy);
 const navigate = useNavigate()
     const {img, sellerName, dollName,subCategoryName,price, ratings,quantityAvailable,description} = singleToy;
-    console.log(singleToy);
+    // console.log(singleToy);
 
 
 
